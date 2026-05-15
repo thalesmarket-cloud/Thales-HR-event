@@ -116,7 +116,7 @@ export const LeadForm = () => {
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-white rounded-[2rem] shadow-[0_30px_100px_rgba(0,0,0,0.3)] overflow-hidden"
+        className="bg-white/10 backdrop-blur-3xl rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/15 overflow-hidden"
       >
         <div className="p-8 md:p-12 font-['Poppins']">
           <AnimatePresence mode="wait">
@@ -129,9 +129,9 @@ export const LeadForm = () => {
                 className="space-y-10"
               >
                 {/* Identification */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-4 border-b border-gray-50">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-4 border-b border-white/5">
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black text-[#1B3769] uppercase tracking-widest ml-1 opacity-40">Prénom</label>
+                    <label className="text-[10px] font-black text-white/40 uppercase tracking-widest ml-1">Prénom</label>
                     <input 
                       required
                       name="firstName"
@@ -139,11 +139,11 @@ export const LeadForm = () => {
                       onChange={handleInputChange}
                       type="text"
                       placeholder="Mohammed"
-                      className="w-full px-5 py-4 bg-gray-50/50 border border-gray-100 rounded-xl focus:border-blue-500 focus:bg-white focus:outline-none transition-all text-sm text-[#1B3769] placeholder:text-gray-300 font-medium"
+                      className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl focus:border-white/30 focus:bg-white/10 focus:outline-none transition-all text-sm text-white placeholder:text-white/20 font-medium"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black text-[#1B3769] uppercase tracking-widest ml-1 opacity-40">Nom</label>
+                    <label className="text-[10px] font-black text-white/40 uppercase tracking-widest ml-1">Nom</label>
                     <input 
                       required
                       name="lastName"
@@ -151,7 +151,7 @@ export const LeadForm = () => {
                       onChange={handleInputChange}
                       type="text"
                       placeholder="Berrada"
-                      className="w-full px-5 py-4 bg-gray-50/50 border border-gray-100 rounded-xl focus:border-blue-500 focus:bg-white focus:outline-none transition-all text-sm text-[#1B3769] placeholder:text-gray-300 font-medium"
+                      className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl focus:border-white/30 focus:bg-white/10 focus:outline-none transition-all text-sm text-white placeholder:text-white/20 font-medium"
                     />
                   </div>
                 </div>
@@ -159,7 +159,7 @@ export const LeadForm = () => {
                 {/* Identification Contact */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black text-[#1B3769] uppercase tracking-widest ml-1 opacity-40">Email Professionnel</label>
+                    <label className="text-[10px] font-black text-white/40 uppercase tracking-widest ml-1">Email Professionnel</label>
                     <input 
                       required
                       name="email"
@@ -167,11 +167,11 @@ export const LeadForm = () => {
                       onChange={handleInputChange}
                       type="email"
                       placeholder="mohammed.berrada@entreprise.com"
-                      className="w-full px-5 py-4 bg-gray-50/50 border border-gray-100 rounded-xl focus:border-blue-500 focus:bg-white focus:outline-none transition-all text-sm text-[#1B3769] placeholder:text-gray-300 font-medium"
+                      className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl focus:border-white/30 focus:bg-white/10 focus:outline-none transition-all text-sm text-white placeholder:text-white/20 font-medium"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black text-[#1B3769] uppercase tracking-widest ml-1 opacity-40">Téléphone</label>
+                    <label className="text-[10px] font-black text-white/40 uppercase tracking-widest ml-1">Téléphone</label>
                     <input 
                       required
                       name="phone"
@@ -179,7 +179,7 @@ export const LeadForm = () => {
                       onChange={handleInputChange}
                       type="tel"
                       placeholder="06 00 00 00 00"
-                      className="w-full px-5 py-4 bg-gray-50/50 border border-gray-100 rounded-xl focus:border-blue-500 focus:bg-white focus:outline-none transition-all text-sm text-[#1B3769] placeholder:text-gray-300 font-medium"
+                      className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl focus:border-white/30 focus:bg-white/10 focus:outline-none transition-all text-sm text-white placeholder:text-white/20 font-medium"
                     />
                   </div>
                 </div>
@@ -188,12 +188,12 @@ export const LeadForm = () => {
                 <div className="space-y-8">
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
-                      <Star className="w-4 h-4 text-blue-500" />
-                      <label className="text-[11px] font-bold text-[#1B3769] uppercase tracking-widest">Est-ce que l'événement vous a plû ?</label>
+                      <Star className="w-4 h-4 text-blue-400" />
+                      <label className="text-[11px] font-bold text-white/90 uppercase tracking-widest">Est-ce que l'événement vous a plû ?</label>
                     </div>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                       {['Oui, beaucoup', 'Oui', 'Moyennement', 'Non'].map((option) => (
-                        <label key={option} className="flex-1 text-center p-3 border border-gray-100 rounded-xl cursor-pointer hover:bg-gray-50 transition-all text-[11px] font-bold text-[#1B3769] uppercase tracking-tighter has-[:checked]:bg-blue-600 has-[:checked]:text-white has-[:checked]:border-blue-600">
+                        <label key={option} className="flex-1 text-center p-3 border border-white/10 rounded-xl cursor-pointer hover:bg-white/5 transition-all text-[11px] font-bold text-white uppercase tracking-tighter has-[:checked]:bg-white has-[:checked]:text-[#1B3769] has-[:checked]:border-white">
                           <input 
                             type="radio" 
                             name="satisfaction" 
@@ -210,12 +210,12 @@ export const LeadForm = () => {
 
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
-                      <Smile className="w-4 h-4 text-blue-500" />
-                      <label className="text-[11px] font-bold text-[#1B3769] uppercase tracking-widest">Est-ce que vous souhaitez qu'on vous invite à d'autres événements ?</label>
+                      <Smile className="w-4 h-4 text-blue-400" />
+                      <label className="text-[11px] font-bold text-white/90 uppercase tracking-widest">Est-ce que vous souhaitez qu'on vous invite à d'autres événements ?</label>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                       {['Oui volontiers', 'Pourquoi pas', 'Non merci'].map((option) => (
-                        <label key={option} className="flex-1 text-center p-3 border border-gray-100 rounded-xl cursor-pointer hover:bg-gray-50 transition-all text-[11px] font-bold text-[#1B3769] uppercase tracking-tighter has-[:checked]:bg-blue-600 has-[:checked]:text-white has-[:checked]:border-blue-600">
+                        <label key={option} className="flex-1 text-center p-3 border border-white/10 rounded-xl cursor-pointer hover:bg-white/5 transition-all text-[11px] font-bold text-white uppercase tracking-tighter has-[:checked]:bg-white has-[:checked]:text-[#1B3769] has-[:checked]:border-white">
                           <input 
                             type="radio" 
                             name="wantsInvites" 
@@ -232,37 +232,37 @@ export const LeadForm = () => {
 
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
-                      <MessageSquare className="w-4 h-4 text-blue-500" />
-                      <label className="text-[11px] font-bold text-[#1B3769] uppercase tracking-widest">Quelles thématiques souhaitez-vous qu'on aborde la prochaine fois ?</label>
+                      <MessageSquare className="w-4 h-4 text-blue-400" />
+                      <label className="text-[11px] font-bold text-white/90 uppercase tracking-widest">Quelles thématiques souhaitez-vous qu'on aborde la prochaine fois ?</label>
                     </div>
                     <textarea 
                       name="nextThemes"
                       value={formData.nextThemes}
                       onChange={handleInputChange}
                       placeholder="Ex: Intelligence Artificielle en RH, Digitalisation de la paie..."
-                      className="w-full px-5 py-4 bg-gray-50/50 border border-gray-100 rounded-2xl focus:border-blue-500 focus:bg-white focus:outline-none transition-all text-sm text-[#1B3769] placeholder:text-gray-300 min-h-[120px] font-medium resize-none shadow-sm"
+                      className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl focus:border-white/30 focus:bg-white/10 focus:outline-none transition-all text-sm text-white placeholder:text-white/20 min-h-[120px] font-medium resize-none"
                     />
                   </div>
                 </div>
 
                 {/* Prospection Section */}
-                <div className="space-y-6 pt-8 border-t border-gray-100">
+                <div className="space-y-6 pt-8 border-t border-white/5">
                   <div className="flex items-center gap-3">
-                    <CalendarDays className="w-4 h-4 text-blue-500" />
-                    <label className="text-[11px] font-bold text-[#1B3769] uppercase tracking-widest">Est-ce que vous êtes interessé par la solution Factorial ?</label>
+                    <CalendarDays className="w-4 h-4 text-blue-400" />
+                    <label className="text-[11px] font-bold text-white/90 uppercase tracking-widest">Est-ce que vous êtes interessé par la solution Factorial ?</label>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <button 
                       type="button"
                       onClick={() => setIsInterested('oui')}
-                      className={`p-4 rounded-xl border text-[11px] font-black uppercase tracking-widest transition-all ${isInterested === 'oui' ? 'bg-[#1B3769] text-white border-[#1B3769] shadow-lg shadow-blue-900/10' : 'border-gray-100 text-[#1B3769] hover:bg-gray-50'}`}
+                      className={`p-4 rounded-xl border text-[11px] font-black uppercase tracking-widest transition-all ${isInterested === 'oui' ? 'bg-white text-[#1B3769] border-white shadow-xl shadow-black/20' : 'border-white/10 text-white hover:bg-white/5'}`}
                     >
                       Oui, je suis interessé
                     </button>
                     <button 
                       type="button"
                       onClick={() => setIsInterested('non')}
-                      className={`p-4 rounded-xl border text-[11px] font-black uppercase tracking-widest transition-all ${isInterested === 'non' ? 'bg-gray-50 text-gray-400 border-gray-100' : 'border-gray-100 text-[#1B3769] hover:bg-gray-50'}`}
+                      className={`p-4 rounded-xl border text-[11px] font-black uppercase tracking-widest transition-all ${isInterested === 'non' ? 'bg-white/10 text-white/40 border-white/5' : 'border-white/10 text-white hover:bg-white/5'}`}
                     >
                       Pas pour le moment
                     </button>
@@ -272,31 +272,31 @@ export const LeadForm = () => {
                     <motion.div 
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}
-                      className="space-y-5 pt-4 bg-blue-50/30 p-6 rounded-2xl border border-blue-50"
+                      className="space-y-5 pt-4 bg-white/5 p-6 rounded-2xl border border-white/10"
                     >
-                      <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.2em] text-center font-['Poppins']">Bénéficiez d'un accompagnement personnalisé</p>
+                      <p className="text-[10px] font-black text-blue-400 uppercase tracking-[0.2em] text-center font-['Poppins']">Bénéficiez d'un accompagnement personnalisé</p>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-['Poppins']">
-                        <label className="flex items-center p-4 bg-white border border-gray-100 rounded-xl cursor-pointer hover:shadow-md transition-all has-[:checked]:border-blue-500 has-[:checked]:ring-2 has-[:checked]:ring-blue-500/10 group">
+                        <label className="flex items-center p-4 bg-white/5 border border-white/10 rounded-xl cursor-pointer hover:bg-white/10 transition-all has-[:checked]:bg-white has-[:checked]:text-[#1B3769] has-[:checked]:border-white group">
                           <input 
                             type="radio" 
                             name="nextStep" 
                             value="Démo personnalisée"
                             checked={formData.nextStep === "Démo personnalisée"}
                             onChange={handleInputChange}
-                            className="w-4 h-4 text-blue-600 border-gray-300" 
+                            className="w-4 h-4 text-blue-600 border-white/20" 
                           />
-                          <span className="ml-3 text-[11px] font-bold text-[#1B3769] uppercase tracking-tighter">Démo personnalisée</span>
+                          <span className="ml-3 text-[11px] font-bold uppercase tracking-tighter">Démo personnalisée</span>
                         </label>
-                        <label className="flex items-center p-4 bg-white border border-gray-100 rounded-xl cursor-pointer hover:shadow-md transition-all has-[:checked]:border-blue-500 has-[:checked]:ring-2 has-[:checked]:ring-blue-500/10 group">
+                        <label className="flex items-center p-4 bg-white/5 border border-white/10 rounded-xl cursor-pointer hover:bg-white/10 transition-all has-[:checked]:bg-white has-[:checked]:text-[#1B3769] has-[:checked]:border-white group">
                           <input 
                             type="radio" 
                             name="nextStep" 
                             value="Prendre rendez-vous"
                             checked={formData.nextStep === "Prendre rendez-vous"}
                             onChange={handleInputChange}
-                            className="w-4 h-4 text-blue-600 border-gray-300" 
+                            className="w-4 h-4 text-blue-600 border-white/20" 
                           />
-                          <span className="ml-3 text-[11px] font-bold text-[#1B3769] uppercase tracking-tighter">Prendre rendez-vous</span>
+                          <span className="ml-3 text-[11px] font-bold uppercase tracking-tighter">Prendre rendez-vous</span>
                         </label>
                       </div>
                     </motion.div>
@@ -307,10 +307,10 @@ export const LeadForm = () => {
                   <button 
                     disabled={loading}
                     type="submit"
-                    className="w-full py-5 bg-blue-600 text-white rounded-2xl font-bold hover:bg-blue-700 transition-all shadow-[0_15px_40px_rgba(59,130,246,0.3)] disabled:opacity-50 text-xs uppercase tracking-widest font-['Poppins']"
+                    className="w-full py-5 bg-white text-[#1B3769] rounded-2xl font-black hover:bg-white/90 transition-all shadow-[0_15px_40px_rgba(0,0,0,0.3)] disabled:opacity-50 text-[11px] uppercase tracking-[0.2em] font-['Poppins']"
                   >
                     {loading ? (
-                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin mx-auto" />
+                      <div className="w-5 h-5 border-2 border-[#1B3769]/30 border-t-[#1B3769] rounded-full animate-spin mx-auto" />
                     ) : (
                       "Envoyer mes réponses"
                     )}
@@ -324,16 +324,16 @@ export const LeadForm = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 className="flex flex-col items-center justify-center text-center py-20 font-['Poppins']"
               >
-                <div className="w-24 h-24 bg-green-50 rounded-full flex items-center justify-center mb-8">
-                  <CheckCircle className="w-12 h-12 text-green-500" />
+                <div className="w-24 h-24 bg-white/10 rounded-full flex items-center justify-center mb-8 border border-white/20">
+                  <CheckCircle className="w-12 h-12 text-white" />
                 </div>
-                <h3 className="text-3xl font-bold text-[#1B3769] mb-4 tracking-tight">Merci pour votre retour !</h3>
-                <p className="text-gray-400 text-sm max-w-sm mx-auto mb-10 leading-relaxed font-medium">
+                <h3 className="text-3xl font-bold text-white mb-4 tracking-tight">Merci pour votre retour !</h3>
+                <p className="text-white/60 text-sm max-w-sm mx-auto mb-10 leading-relaxed font-medium">
                   Vos réponses précieuses ont été enregistrées. Un expert Thales reviendra vers vous si nécessaire.
                 </p>
                 <button 
                   onClick={() => setSubmitted(false)}
-                  className="text-blue-600 font-bold text-sm hover:underline tracking-tight"
+                  className="text-white font-bold text-sm hover:underline tracking-tight opacity-80 hover:opacity-100 transition-opacity"
                 >
                   Modifier mes réponses
                 </button>
