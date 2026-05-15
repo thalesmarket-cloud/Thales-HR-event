@@ -110,9 +110,6 @@ export const LeadForm = () => {
       {/* Header Section */}
       <div className="text-center mb-8 font-['Poppins']">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">Merci pour votre participation</h2>
-        <p className="text-blue-200/60 text-sm max-w-lg mx-auto leading-relaxed uppercase tracking-widest text-[10px] font-bold">
-          Votre expertise au service de l'innovation RH de demain
-        </p>
       </div>
 
       {/* Form Card */}
