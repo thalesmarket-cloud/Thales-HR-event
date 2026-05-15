@@ -1,0 +1,28 @@
+{
+  "entities": {
+    "Response": {
+      "title": "Questionnaire Response",
+      "description": "A response submitted by a user participating in the satisfaction and prospection survey.",
+      "type": "object",
+      "properties": {
+        "firstName": { "type": "string" },
+        "lastName": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "phone": { "type": "string" },
+        "satisfaction": { "type": "string" },
+        "wantsInvites": { "type": "string" },
+        "nextThemes": { "type": "string" },
+        "interestedInFactorial": { "type": "string" },
+        "nextStep": { "type": "string" },
+        "submittedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["firstName", "lastName", "email", "phone", "submittedAt"]
+    }
+  },
+  "firestore": {
+    "/responses/{responseId}": {
+      "schema": "Response",
+      "description": "Collection of all questionnaire responses."
+    }
+  }
+}

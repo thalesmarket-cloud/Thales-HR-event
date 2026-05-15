@@ -1,0 +1,8 @@
+{
+  "name": "Thales x Factorial HR Event",
+  "description": "Premium landing page for the HR digital transformation event by Thales Informatique and Factorial.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
