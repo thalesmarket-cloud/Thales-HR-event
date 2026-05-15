@@ -316,12 +316,6 @@ export const LeadForm = () => {
                     )}
                   </button>
                 </div>
-
-                <div className="text-center pt-6 font-['Poppins']">
-                  <span className="text-[9px] font-black text-gray-300 uppercase tracking-[0.3em]">
-                    THALES INFORMATIQUE • SOLUTION SIRH
-                  </span>
-                </div>
               </motion.form>
             ) : (
               <motion.div 
