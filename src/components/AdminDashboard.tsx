@@ -15,7 +15,9 @@ import {
   query, 
   orderBy, 
   onSnapshot,
-  Timestamp 
+  Timestamp,
+  writeBatch,
+  doc
 } from "firebase/firestore";
 import { 
   LogOut, 
@@ -27,7 +29,8 @@ import {
   Calendar,
   ChevronRight,
   ShieldCheck,
-  Lock
+  Lock,
+  Trash2
 } from "lucide-react";
 
 enum OperationType {
@@ -85,6 +88,8 @@ export const AdminDashboard = () => {
   const [loading, setLoading] = useState(true);
   const [responses, setResponses] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [isResetting, setIsResetting] = useState(false);
+  const [showResetConfirm, setShowResetConfirm] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (u) => {
@@ -120,6 +125,32 @@ export const AdminDashboard = () => {
   };
 
   const handleLogout = () => signOut(auth);
+
+  const handleReset = async () => {
+    if (!responses.length) return;
+    
+    if (!showResetConfirm) {
+      setShowResetConfirm(true);
+      // Auto-cancel after 3 seconds if not clicked again
+      setTimeout(() => setShowResetConfirm(false), 3000);
+      return;
+    }
+
+    setIsResetting(true);
+    try {
+      const batch = writeBatch(db);
+      responses.forEach((res) => {
+        const docRef = doc(db, "responses", res.id);
+        batch.delete(docRef);
+      });
+      await batch.commit();
+      setShowResetConfirm(false);
+    } catch (error) {
+      handleFirestoreError(error, OperationType.DELETE, 'responses');
+    } finally {
+      setIsResetting(false);
+    }
+  };
 
   const formatDate = (timestamp: any) => {
     if (!timestamp) return "N/A";
@@ -252,6 +283,28 @@ export const AdminDashboard = () => {
                 className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:bg-white transition-all font-['Poppins']"
               />
             </div>
+            
+            <button 
+              onClick={handleReset}
+              disabled={responses.length === 0 || isResetting}
+              className={`flex items-center gap-2 px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-widest transition-all disabled:opacity-50 disabled:cursor-not-allowed font-['Poppins'] ${
+                showResetConfirm 
+                  ? 'bg-red-600 text-white animate-pulse' 
+                  : 'bg-red-50 text-red-600 hover:bg-red-100'
+              }`}
+            >
+              {isResetting ? (
+                <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+              ) : (
+                <Trash2 className="w-4 h-4" />
+              )}
+              {isResetting 
+                ? 'Suppression...' 
+                : showResetConfirm 
+                  ? 'Confirmer ?' 
+                  : 'Réinitialiser les résultats'
+              }
+            </button>
           </div>
 
           <div className="overflow-x-auto">
